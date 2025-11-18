@@ -1,0 +1,156 @@
+{
+  "startNodeId": "n1",
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "La torre del mago",
+      "text": "Eldrin, un joven mago aprendiz, despierta en lo alto de una torre mientras una tormenta mágica sacude el cielo.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Asomarse al balcón para ver la tormenta.",
+          "nextNodeId": "n2"
+        },
+        {
+          "id": "B",
+          "text": "Bajar a la biblioteca en busca de respuestas.",
+          "nextNodeId": "n3"
+        }
+      ]
+    },
+    {
+      "id": "n2",
+      "title": "La tormenta viviente",
+      "text": "Desde el balcón, Eldrin ve un dragón hecho de relámpagos rodeando la torre. Su maestro no aparece por ningún lado.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Intentar comunicarse con el dragón usando un hechizo de luz.",
+          "nextNodeId": "n4"
+        },
+        {
+          "id": "B",
+          "text": "Huir hacia las escaleras interiores.",
+          "nextNodeId": "n3"
+        }
+      ]
+    },
+    {
+      "id": "n3",
+      "title": "La biblioteca silenciosa",
+      "text": "La biblioteca está extrañamente silenciosa. Los libros flotan abiertos, congelados en el aire, como si el tiempo se hubiera detenido.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Buscar el grimorio del maestro.",
+          "nextNodeId": "n5"
+        },
+        {
+          "id": "B",
+          "text": "Romper el silencio lanzando una pequeña chispa de fuego.",
+          "nextNodeId": "n6"
+        }
+      ]
+    },
+    {
+      "id": "n4",
+      "title": "Pacto con el relámpago",
+      "text": "El hechizo de luz dibuja un círculo alrededor del dragón. La criatura se detiene y habla en una lengua de truenos que sólo tu alma entiende.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Aceptar la oferta del dragón de unir tu magia a la suya.",
+          "nextNodeId": "n7"
+        },
+        {
+          "id": "B",
+          "text": "Rechazar la oferta y tratar de disipar la tormenta.",
+          "nextNodeId": "n8"
+        }
+      ]
+    },
+    {
+      "id": "n5",
+      "title": "El grimorio del maestro",
+      "text": "Encuentras el grimorio del maestro abierto en un capítulo prohibido sobre \"Tormentas con conciencia\".",
+      "options": [
+        {
+          "id": "A",
+          "text": "Leer el hechizo de sellado completo, sin dudar.",
+          "nextNodeId": "n8"
+        },
+        {
+          "id": "B",
+          "text": "Modificar el hechizo para absorber parte del poder de la tormenta.",
+          "nextNodeId": "n9"
+        }
+      ]
+    },
+    {
+      "id": "n6",
+      "title": "El tiempo se rompe",
+      "text": "La chispa de fuego rompe el hechizo de tiempo detenido. Los libros caen, y una sombra vieja como la torre despierta entre los estantes.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Enfrentar a la sombra con un hechizo de protección.",
+          "nextNodeId": "n9"
+        },
+        {
+          "id": "B",
+          "text": "Huir de la biblioteca y subir nuevamente a la azotea.",
+          "nextNodeId": "n2"
+        }
+      ]
+    },
+    {
+      "id": "n7",
+      "title": "Heraldo de la tormenta",
+      "text": "Al unir tu magia a la del dragón de relámpagos, sientes que tu cuerpo se vuelve más ligero y tus pensamientos más rápidos.",
+      "ending": true,
+      "outcome": "final_bueno",
+      "textEnding": "Eldrin se convierte en heraldo de la tormenta. La torre se transforma en un faro de luz que protege al reino, guiando las tormentas lejos de los pueblos."
+    },
+    {
+      "id": "n8",
+      "title": "El sello perfecto",
+      "text": "Canalizas la energía de la tormenta hacia un círculo de runas que rodea la torre, repitiendo cada sílaba como te enseñó tu maestro.",
+      "ending": true,
+      "outcome": "final_neutral",
+      "textEnding": "La tormenta se disuelve y el dragón de relámpagos queda atrapado en una gema. El reino se salva, pero tu magia queda agotada por años."
+    },
+    {
+      "id": "n9",
+      "title": "El mago que quiso más",
+      "text": "Absorbes parte del poder de la tormenta. Tus ojos brillan como rayos, pero algo dentro de ti empieza a romperse.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Aceptar la corrupción y convertirte en un mago temido.",
+          "nextNodeId": "n10"
+        },
+        {
+          "id": "B",
+          "text": "Sacrificar la torre para expulsar el exceso de poder.",
+          "nextNodeId": "n11"
+        }
+      ]
+    },
+    {
+      "id": "n10",
+      "title": "Señor de las ruinas",
+      "text": "Dejas que la tormenta te consuma por dentro. Cada palabra que pronuncias cae como un trueno sobre la tierra.",
+      "ending": true,
+      "outcome": "final_malo",
+      "textEnding": "La torre se oscurece y el cielo obedece tus órdenes. El reino cae de rodillas, pero Eldrin se pierde a sí mismo entre los truenos."
+    },
+    {
+      "id": "n11",
+      "title": "El sacrificio de la torre",
+      "text": "Canalizas toda la magia en los cimientos de la torre, grabando runas de explosión y purificación.",
+      "ending": true,
+      "outcome": "final_agridulce",
+      "textEnding": "La torre explota en una lluvia de luces. El reino se salva, pero el hogar de todos los magos desaparece contigo. Tu nombre queda en las leyendas."
+    }
+  ]
+}
