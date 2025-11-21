@@ -2,12 +2,12 @@
 #include <iostream>
 
 Game::Game()
-sf::RenderWindow window(sf::VideoMode({1280, 720 }), "Minijuego - Eldrin y la Tormenta")
 {
+    sf::RenderWindow window(sf::VideoMode({ 1280, 720 }), "Minijuego - Eldrin y la Tormenta");
     m_window.setFramerateLimit(60);
 
     // Cargar fuente 
-    if (!m_font.loadFromFile("assets/Roboto-Regular.ttf"))
+    if (!m_font.openFromFile("assets/Roboto-Regular.ttf"))
     {
         std::cerr << "No se pudo cargar la fuente. Asegúrate de tener assets/Roboto-Regular.ttf\n";
     }
@@ -35,20 +35,10 @@ void Game::Run()
 
 void Game::ProcessEvents()
 {
-    sf::Event event;
-    while (m_window.pollEvent(event))
+    
+    while (m_window.isOpen)
     {
-        if (event.type == sf::Event::Closed)
-        {
-            m_window.close();
-        }
-        else if (event.type == sf::Event::KeyPressed)
-        {
-            if (event.key.code == sf::Keyboard::Num1) HandleOptionSelection(0);
-            if (event.key.code == sf::Keyboard::Num2) HandleOptionSelection(1);
-            if (event.key.code == sf::Keyboard::Num3) HandleOptionSelection(2);
-            if (event.key.code == sf::Keyboard::Num4) HandleOptionSelection(3);
-        }
+        
     }
 }
 
