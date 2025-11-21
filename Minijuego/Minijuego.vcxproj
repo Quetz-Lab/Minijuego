@@ -130,10 +130,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Minijuego.cpp" />
+    <ClCompile Include="Node.cpp" />
     <ClCompile Include="RendeerManager.cpp" />
+    <ClCompile Include="SkillList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Node.h" />
     <ClInclude Include="RendeerManager.h" />
+    <ClInclude Include="SkillList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
