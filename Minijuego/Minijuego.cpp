@@ -24,7 +24,6 @@ int main()
     std::cout << "Lista inicial de habilidades:" << std::endl;
     skills.Show();
 
-    // Ejemplos
     std::cout << std::endl;
     skills.ReplaceSkillAt(2, "Poison Dagger");
     std::cout << std::endl;
@@ -34,6 +33,34 @@ int main()
     skills.DeleteSkillAt(1);
     std::cout << std::endl;
     skills.Show();
+
+
+    sf::RenderWindow window(sf::VideoMode({ 800, 800 }), "SFML works!");
+    sf::CircleShape shape(100.f);
+    shape.setFillColor(sf::Color::Green);
+
+    sf::Texture texture;
+    if (!texture.loadFromFile("imagen1.png"))
+    {
+        // error...
+    }
+
+    sf::Sprite sprite(texture);
+
+
+    while (window.isOpen())
+    {
+        while (const std::optional event = window.pollEvent())
+        {
+            if (event->is<sf::Event::Closed>())
+                window.close();
+        }
+
+        window.clear();
+        window.draw(sprite);
+      
+        window.display();
+    }
 
     return 0;
 }
