@@ -4,6 +4,7 @@
 #include <iostream>
 #include "SFML/Graphics.hpp"
 #include <string>
+#include "RendeerManager.h"
 
 using namespace std;
 
