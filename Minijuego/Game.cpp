@@ -1,12 +1,13 @@
 #include "Game.h"
 #include <iostream>
+#include <optional>
 
 Game::Game()
+    : m_window(sf::VideoMode({ 1280u, 720u }), "Minijuego - Eldrin y la Tormenta")
 {
-    sf::RenderWindow window(sf::VideoMode({ 1280, 720 }), "Minijuego - Eldrin y la Tormenta");
     m_window.setFramerateLimit(60);
 
-    // Cargar fuente 
+    // Cargar fuente
     if (!m_font.openFromFile("assets/Roboto-Regular.ttf"))
     {
         std::cerr << "No se pudo cargar la fuente. Asegúrate de tener assets/Roboto-Regular.ttf\n";
@@ -35,17 +36,18 @@ void Game::Run()
 
 void Game::ProcessEvents()
 {
-    
-    while (m_window.isOpen)
+    while (const std::optional<sf::Event> event = m_window.pollEvent())
     {
-        
+        if (event->is<sf::Event::Closed>())
+        {
+            m_window.close();
+        }
     }
 }
 
-void Game::Update(float deltaTime)
+void Game::Update(float /*deltaTime*/)
 {
     // Por ahora no hay lógica de tiempo
-    // Aquí se podra actualizar animaciones, timers, etc.
 }
 
 void Game::Render()
@@ -72,12 +74,11 @@ void Game::RebuildTextsForCurrentNode()
     if (!node)
     {
         // Mensaje de error visible
-        sf::Text errorText;
-        errorText.setFont(m_font);
+        sf::Text errorText(m_font);
         errorText.setString("No se pudo encontrar el nodo actual de la historia.");
         errorText.setCharacterSize(24);
         errorText.setFillColor(sf::Color::Red);
-        errorText.setPosition(50.f, 50.f);
+        errorText.setPosition({ 50.f, 50.f });
         m_textLines.push_back(errorText);
         return;
     }
@@ -88,36 +89,33 @@ void Game::RebuildTextsForCurrentNode()
 
     // Título
     {
-        sf::Text title;
-        title.setFont(m_font);
+        sf::Text title(m_font);
         title.setString(node->title);
         title.setCharacterSize(32);
         title.setFillColor(sf::Color::Cyan);
-        title.setPosition(x, y);
+        title.setPosition({ x, y });
         m_textLines.push_back(title);
         y += lineSpacing * 1.5f;
     }
 
     // Texto principal
     {
-        sf::Text body;
-        body.setFont(m_font);
+        sf::Text body(m_font);
         body.setString(node->text);
         body.setCharacterSize(22);
         body.setFillColor(sf::Color::White);
-        body.setPosition(x, y);
+        body.setPosition({ x, y });
         m_textLines.push_back(body);
         y += lineSpacing * 3.f;
     }
 
     if (node->isEnding)
     {
-        sf::Text ending;
-        ending.setFont(m_font);
+        sf::Text ending(m_font);
         ending.setString(node->textEnding + "\n\n(Ya llegaste a un final. Presiona ESC para cerrar la ventana.)");
         ending.setCharacterSize(20);
         ending.setFillColor(sf::Color(200, 200, 200));
-        ending.setPosition(x, y);
+        ending.setPosition({ x, y });
         m_textLines.push_back(ending);
         return;
     }
@@ -126,15 +124,14 @@ void Game::RebuildTextsForCurrentNode()
     int index = 1;
     for (const auto& opt : node->options)
     {
-        sf::Text optText;
-        optText.setFont(m_font);
+        sf::Text optText(m_font);
 
         std::string line = std::to_string(index) + ") " + opt.text;
         optText.setString(line);
 
         optText.setCharacterSize(20);
         optText.setFillColor(sf::Color(180, 220, 180));
-        optText.setPosition(x, y);
+        optText.setPosition({ x, y });
         m_textLines.push_back(optText);
 
         y += lineSpacing;
