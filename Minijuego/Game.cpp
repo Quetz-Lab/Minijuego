@@ -8,13 +8,13 @@ Game::Game()
     m_window.setFramerateLimit(60);
 
     // Cargar fuente
-    if (!m_font.openFromFile("assets/Roboto-Regular.ttf"))
+    if (!m_font.openFromFile("assets/calibriz.ttf"))
     {
         std::cerr << "No se pudo cargar la fuente. Asegúrate de tener assets/Roboto-Regular.ttf\n";
     }
 
     // Cargar historia
-    if (!m_story.LoadFromFile("story.json"))
+    if (!m_story.LoadFromFile("assets/story.json"))
     {
         std::cerr << "No se pudo cargar story.json\n";
     }
